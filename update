@@ -14,7 +14,7 @@ import sys
 #var's
 __version__ = "1.5"
 
-__rabbit__ = '''\n\t       BEWARE!\n 
+__rabbit__ = '''\n\t           BEWARE!\n 
                  Man Eating Rabbits Up Ahead!
              '''
 __nii__ = "\n\t      The knights who say nii."
