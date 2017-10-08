@@ -12,12 +12,12 @@ import sys
 """
 
 #var's
-__version__ = "1.5"
+__version = "1.7"
 
-__rabbit__ = '''\n\t           BEWARE!\n 
-                 Man Eating Rabbits Up Ahead!
+__rabbit = '''\n\t\t           BEWARE!\n 
+                Man Eating Rabbits Up Ahead!
              '''
-__nii__ = "\n\t      The knights who say nii."
+__nii = "\n\t      The knights who say nii."
             
 def apt_update():
     #call apt
@@ -56,6 +56,7 @@ def apt_list_upgrades():
     """
     >>> subprocess.run(['apt', 'list', '--upgradable'])
     CompletedProcess(args=['apt', 'list', '--upgradable'], returncode=0)
+    >>> 
     """
 
     print("\033[93m              ---APT LISTING UPGRADES---\033[0m")
@@ -67,8 +68,8 @@ def apt_list_upgrades():
 
 
 def full_upgrade(): # add to menue: not done:
+    #adding apt full-upgrade # In testing:
     """
-    adding apt full-upgrade # In testing:
     >>> subprocess.run(['apt', 'full-upgrade'])
     CompletedProcess(args=['apt', 'full-upgrade'], returncode=0)
     >>> 
@@ -80,10 +81,25 @@ def full_upgrade(): # add to menue: not done:
     print("\033[93m                 ============\033[0m\n\n")
     time.sleep(3)
 
+def remover():
+    # removes outdated pkg's:
+    """
+    >>> subprocess.run(['apt', 'autoremove', '-y'])
+    CompletedProcess(args=['apt', 'autoremove', '-y'], returncode=0)
+    >>> 
+    """
+    print("\033[33;1m           ---APT AUTOREMOVE---            \033[0m")
+    print("\033[33;1m           ======================           \033[0m\n\n")
+    subprocess.run(['apt', 'autoremove', '-y'])
+    print('\033[33;1m                 ---DONE---\033[0m')
+    print('\033[33;1m                ============\033[0m')
+    time.sleep(3)
+
 
 def main():
-    """
     # Main function
+    """
+    
 
     """
 
@@ -97,65 +113,123 @@ def main():
         print("\033[92m      1: to check updates for apt.\033[0m")
         print("\033[92m      2: to list upgradable packages.\033[0m")
         print("\033[92m      3: to upgrade packages.\033[0m")
-        print("\033[92m      4: to fully upgrade apt\033[0m")
-        print("\033[32;1m      5: to see credets\033[0m")
-        print("\033[32;1m      6: to test applet\033[0m")
+        print("\033[92m      4: to fully upgrade apt.\033[0m")
+        print("\033[32;1m      5: to run autoremove.\033[0m")
+        print("\033[32;1m      6: to see credets.\033[0m")
+        print("\033[32;1m      7: to test applet.\033[0m")
         print("\033[92m      0: to exit.\033[0m")
         user_input = input("\033[93m ==> \033[0m")
         
+# menu 0 | exit only
         if user_input == '0':
             print("\033[93m              ---NOW EXITING---\033[0m")
             print("\033[93m             ===================\033[0m")
             time.sleep(5)
             sys.exit()
+
+# menu 1
         elif user_input == '1':
-            apt_update()
-            #time.sleep(3) # don't need to dubble the wait time
+            try:
+                apt_update()
+            except:
+                print('\033[41;33;1m ERROR! \033[0m')
+                raise
+                time.sleep(15)
+
+# menu 2
         elif user_input == '2':
-            apt_list_upgrades()
-            #time.sleep(3) # don't need to dubble the wait time
+            try:
+                apt_list_upgrades()
+            except:
+                print('\033[41;33;1m ERROR! \033[0m')
+                time.sleep(15)
+
+# menu 3
         elif user_input == '3':
-            apt_upgrade()
-            #time.sleep(3) # don't need to dubble the wait time
-        elif user_input == '5': # menu num 5
+            try:
+                apt_upgrade()
+            except:
+                print('\033[41;33;1m ERROR! \033[0m')
+                raise
+                time.sleep(15)
+
+# menu 6
+        elif user_input == '6':
+            ''' credets '''
             print("\033[96m              ---CREDETS---\033[0m")
             print("\033[96m             ===============\033[0m")
             print("\n")
-            print("\033[96m        Version {} \033[0m".format(__version__))
+            print("\033[96m        Version {} \033[0m".format(__version))
             """
-            >>> print("        Version "__version__)
-            version 1.5
+            >>> print("        Version "__version)
+            version 1.7
             """
             print("\033[96m        Written by: Steve Gibson.\033[0m")
             print("\033[96m        Written on: July, 6th 2017.\033[0m")
             print("\n")
             time.sleep(5)
-        elif user_input == '7': # menu 7
-            print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit__))
+
+# menu 8
+        elif user_input == '8':
+            print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit))
             time.sleep(3)
-        elif user_input == '8': # menu num 8
-            print("\033[95m         {} \033[0m\n\n\n".format(__nii__))
+
+# menu 9
+        elif user_input == '9':
+            print("\033[95m         {} \033[0m\n\n\n".format(__nii))
             time.sleep(3)
-        elif user_input == '6': # menu num 6
+
+# menu 7
+        elif user_input == '7':
             try:
                 doctest.testmod(verbose=True)
             except:
                 print('\033[41;33;1m ERROR! \033[0m')
-        elif user_input == '4': # menu num 4
+                raise
+                time.sleep(15)
+
+# menu 4
+        elif user_input == '4':
             try:
                 full_upgrade()
             except:
-                print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---       \t\t\033[0m")
-                print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
-                time.sleep(5)
+                print("\t\t\033[33;41;1m ERROR! \t\t\033[0m")
+                raise
+                time.sleep(15)
+
+# menu 5
+        elif user_input == '5':
+            try:
+                remover()
+            except:
+                print('\033[33;41;1m ERROR! \033[0m')
+                raise
+                time.sleep(15)
         else:
             print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---      \t\t\033[0m")
             print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
             time.sleep(5)
 
 if __name__ == '__main__':
-    #doctest.testmod() # comm out after debugging
     """
-    calling main()
+    Boiler Plate:
+    Calls doctest for debugging;
+        2 items had no tests: # Not an issue:
+            __main__
+            __main__.main
+        5 items passed all tests:
+            1 tests in __main__.apt_list_upgrades
+            1 tests in __main__.apt_update
+            1 tests in __main__.apt_upgrade
+            1 tests in __main__.full_upgrade
+            1 tests in __main__.remover
+        5 tests in 7 items.
+        5 passed and 0 failed.
+        Test passed.
+    Calls the main function;
+        Updates all installed apt packages,
+        Addes and removes apt packages
     """
-    main() #uncomm when done debugging
+#    doctest.testmod(verbose=True) # comm out after debugging:
+    '''calling main()'''
+    main() # Uncomm when done debugging:
