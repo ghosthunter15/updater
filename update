@@ -11,8 +11,10 @@ import sys
 >>> main()
 """
 
+RED, GREEN, YELLOW, BLUE, MAGENTA, CAYN, ERROR, END = '\033[31;1m', '\033[32;1m', '\033[33;1m', '\033[34;1m', '\033[35;1m', '\033[36;1m', '\033[41;33;1m', '\033[0m'
+
 #var's
-__version = "1.7"
+__version = "1.8.3"
 
 __rabbit = '''\n\t\t           BEWARE!\n 
                 Man Eating Rabbits Up Ahead!
@@ -95,6 +97,50 @@ def remover():
     print('\033[33;1m                ============\033[0m')
     time.sleep(3)
 
+def clear_screen():
+    # clears the screen
+    """
+    >>> __dots = '..........'
+    >>> for i in __dots:
+    ...     sys.stdout.write(str(i))
+    ...     sys.stdout.flush()
+    ...     time.sleep(0.2)
+    ...     
+    .1
+    .1
+    .1
+    .1
+    .1
+    .1
+    .1
+    .1
+    .1
+    .1
+    >>> 
+    
+    """
+    """
+    >>> subprocess.run(['clear'])
+        CompletedProcess(args=['clear'], returncode=0)
+    >>> 
+    """
+
+    # add wait dots:
+    __dots = '.......................................................'
+    try:
+        for i in __dots:
+            sys.stdout.write(YELLOW + str(i) + END)
+            sys.stdout.flush()
+            time.sleep(0.2)
+    except:
+        print(ERROR + 'ERROR CODE=1' + END)
+        raise
+    try:
+        subprocess.run(['clear'])
+    except:
+        print('\033[41;33;1m ERROR CODE=1 \033[0m')
+        raise
+
 
 def main():
     # Main function
@@ -104,6 +150,11 @@ def main():
     """
 
     while True:
+
+        # clean up the screen
+        
+        clear_screen()
+        
 
         print("\033[93m              ----APT UPDATER----\033[0m")
         print("\033[93m             =====================\033[0m\n\n\n")
@@ -162,7 +213,7 @@ def main():
             print("\033[96m        Version {} \033[0m".format(__version))
             """
             >>> print("        Version "__version)
-            version 1.7
+            version 1.8.3
             """
             print("\033[96m        Written by: Steve Gibson.\033[0m")
             print("\033[96m        Written on: July, 6th 2017.\033[0m")
@@ -217,19 +268,22 @@ if __name__ == '__main__':
         2 items had no tests: # Not an issue:
             __main__
             __main__.main
-        5 items passed all tests:
+        6 items passed all tests:
             1 tests in __main__.apt_list_upgrades
             1 tests in __main__.apt_update
+            2 tests in __main__.clear_screen
             1 tests in __main__.apt_upgrade
             1 tests in __main__.full_upgrade
             1 tests in __main__.remover
-        5 tests in 7 items.
-        5 passed and 0 failed.
+        7 tests in 8 items.
+        7 passed and 0 failed.
         Test passed.
     Calls the main function;
         Updates all installed apt packages,
         Addes and removes apt packages
     """
-#    doctest.testmod(verbose=True) # comm out after debugging:
-    '''calling main()'''
-    main() # Uncomm when done debugging:
+    # comm out after debugging:
+#    doctest.testmod(verbose=True)
+
+    # Calling main(); Uncomm when done debugging:
+    main() 
