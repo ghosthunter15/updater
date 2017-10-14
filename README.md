@@ -6,4 +6,5 @@ This applet, updates your apt packages and fully upgrades apt.
 
 added an easy install
 
-added a unsignd tag
+added a unsignd tag?
+added improvements
