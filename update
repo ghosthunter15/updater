@@ -86,7 +86,7 @@ def full_upgrade(): # add to menue: not done:
 def remover():
     # removes outdated pkg's:
     """
-    >>> subprocess.run(['apt', 'autoremove', '-y'])
+    >>> subprocess.run(['apt', 'autoremove', '--dry-run'])
     CompletedProcess(args=['apt', 'autoremove', '-y'], returncode=0)
     >>> 
     """
