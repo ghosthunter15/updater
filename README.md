@@ -8,3 +8,4 @@ added an easy install
 
 added a unsignd tag?
 added improvements
+improvements added to the testing function.
