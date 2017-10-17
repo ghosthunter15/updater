@@ -4,8 +4,8 @@ An apt updater.
 This applets paths are setup for termux users.
 This applet, updates your apt packages and fully upgrades apt.
 
-added an easy install
+Added an easy install.
 
-added a unsignd tag?
-added improvements
-improvements added to the testing function.
+Added a unsignd tag?
+Added improvements
+Improvements added to the testing function.
