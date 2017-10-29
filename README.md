@@ -9,3 +9,6 @@ Added an easy install.
 Added a unsignd tag?
 Added improvements
 Improvements added to the testing function.
+
+10/29/2017
+	Improvements

@@ -8,7 +8,7 @@ import time
 import sys
 
 """
->>> main()
+>>>main()
 """
 
 RED, GREEN, YELLOW, BLUE, MAGENTA, CAYN, ERROR, END = '\033[31;1m', '\033[32;1m', '\033[33;1m', '\033[34;1m', '\033[35;1m', '\033[36;1m', '\033[41;33;1m', '\033[0m'
@@ -87,7 +87,7 @@ def remover():
     # removes outdated pkg's:
     """
     >>> subprocess.run(['apt', 'autoremove', '--dry-run'])
-    CompletedProcess(args=['apt', 'autoremove', '-y'], returncode=0)
+    CompletedProcess(args=['apt', 'autoremove', '--dry-run'], returncode=0)
     >>> 
     """
     print("\033[33;1m           ---APT AUTOREMOVE---            \033[0m")
@@ -144,10 +144,6 @@ def clear_screen():
 
 def main():
     # Main function
-    """
-    
-
-    """
 
     while True:
 
@@ -175,7 +171,8 @@ def main():
         if user_input == '0':
             print("\033[93m              ---NOW EXITING---\033[0m")
             print("\033[93m             ===================\033[0m")
-            time.sleep(5)
+            clear_screen()
+            #time.sleep(5)
             sys.exit()
 
 # menu 1
@@ -282,8 +279,13 @@ if __name__ == '__main__':
         Updates all installed apt packages,
         Addes and removes apt packages
     """
+
+
     # comm out after debugging:
 #    doctest.testmod(verbose=True)
 
     # Calling main(); Uncomm when done debugging:
+    """
+    >>> main()
+    """
     main() 
