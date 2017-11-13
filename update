@@ -119,7 +119,7 @@ def clear_screen():
     >>> 
     
     """
-    """
+    """ 
     >>> subprocess.run(['clear'])
         CompletedProcess(args=['clear'], returncode=0)
     >>> 
