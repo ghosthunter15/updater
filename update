@@ -231,6 +231,7 @@ def main():
         elif user_input == '7':
             try:
                 doctest.testmod(verbose=True)
+                time.sleep(15)
             except:
                 print('\033[41;33;1m ERROR! \033[0m')
                 raise
