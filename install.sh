@@ -1,18 +1,27 @@
-#!/data/data/com.termux/files/usr/bin/env sh
-# copy update to ~/bin 
+#!/data/data/com.termux/files/usr/bin/env bash
+
+# debugging
+#set -x # comm out when debugging is done
+
 echo ' copying to bin'
 echo '++++++++++++++++'
-echo off
-cp update ~/bin/update
-echo on
+
+# copy update to ~/bin
+cp -v -u update ~/bin/update
+
 echo ' done'
-echo ''
+echo '======'
 echo ' makeing executable'
 echo '++++++++++++++++++++'
-echo off
+echo 
+
 # make exe
-chmod 777 update
-echo on
+pushd ~/bin
+chmod -v 777 update
+popd 
+
+echo ' done'
+echo '======'
 echo ' congrats, updater is now installed!'
 echo '+++++++++++++++++++++++++++++++++++++'
 
