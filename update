@@ -6,9 +6,12 @@ import subprocess
 import doctest
 import time
 import sys
+import logging
 
 """
->>>main()
+    UPDATER is an apt wrapper.
+    It upgrades an dose a full upgrade as well as removed old and
+    outdated packages.
 """
 
 RED, GREEN, YELLOW, BLUE, MAGENTA, CAYN, ERROR, END = '\033[31;1m', '\033[32;1m', '\033[33;1m', '\033[34;1m', '\033[35;1m', '\033[36;1m', '\033[41;33;1m', '\033[0m'
@@ -20,8 +23,11 @@ __rabbit = '''\n\t\t           BEWARE!\n
                 Man Eating Rabbits Up Ahead!
              '''
 __nii = "\n\t      The knights who say nii."
+
+logging.basicConfig(filename='.updater.log', filemode='w', level=logging.DEBUG)
             
 def apt_update():
+    # ERRORCODE FOR THIS FUNC IS 6
     #call apt
     """
     # TESTING: NO BUGS
@@ -39,6 +45,7 @@ def apt_update():
     time.sleep(2)
 
 def apt_upgrade():
+    # ERRORCODE FOR THIS FUNC IS 5
     # upgrade apt
     # if no network connection may have returncode=100)
     """
@@ -55,6 +62,7 @@ def apt_upgrade():
     time.sleep(2)
 
 def apt_list_upgrades():
+    # ERRORCODE FOR THIS FUNC IS 4
     """
     >>> subprocess.run(['apt', 'list', '--upgradable'])
     CompletedProcess(args=['apt', 'list', '--upgradable'], returncode=0)
@@ -69,7 +77,9 @@ def apt_list_upgrades():
     time.sleep(4)
 
 
-def full_upgrade(): # add to menue: not done:
+def full_upgrade(): 
+    # ERRORCODE FOR THIS FUNC IS 3
+    # add to menue: not done:
     #adding apt full-upgrade # In testing:
     """
     >>> subprocess.run(['apt', 'full-upgrade', '--dry-run'])
@@ -78,12 +88,13 @@ def full_upgrade(): # add to menue: not done:
     """
     print("\033[93m              ---APT FULL UPGRADE---    \033[0m")
     print("\033[93m             ========================   \033[0m")
-    subprocess.run(['apt', 'full-upgrade'])
+    subprocess.run(['apt', 'full-upgrade', '-y'])
     print("\033[93m                  ---DONE---\033[0m")
     print("\033[93m                 ============\033[0m\n\n")
     time.sleep(3)
 
 def remover():
+    # ERRORCODE FOR THIS FUNC IS 2
     # removes outdated pkg's:
     """
     >>> subprocess.run(['apt', 'autoremove', '--dry-run'])
@@ -98,6 +109,7 @@ def remover():
     time.sleep(3)
 
 def clear_screen():
+    # ERRORCODE FOR THIS FUNC IS 1
     # clears the screen
     """
     >>> __dots = '..........'
@@ -133,11 +145,13 @@ def clear_screen():
             sys.stdout.flush()
             time.sleep(0.2)
     except:
+        logging.warning(ERROR + 'ERRORCODE=1' + END)
         print(ERROR + 'ERROR CODE=1' + END)
         raise
     try:
         subprocess.run(['clear'])
     except:
+        logging.warning(ERROR + 'ERRORCODE=1' + END)
         print('\033[41;33;1m ERROR CODE=1 \033[0m')
         raise
 
@@ -180,6 +194,7 @@ def main():
             try:
                 apt_update()
             except:
+                logging.warning(ERROR + 'ERRORCODE=6' + END)
                 print('\033[41;33;1m ERROR! \033[0m')
                 raise
                 time.sleep(15)
@@ -189,6 +204,7 @@ def main():
             try:
                 apt_list_upgrades()
             except:
+                logging.warning(ERROR + 'ERRORCODE=4' + END)
                 print('\033[41;33;1m ERROR! \033[0m')
                 time.sleep(15)
 
@@ -197,6 +213,7 @@ def main():
             try:
                 apt_upgrade()
             except:
+                logging.warning(ERROR + 'ERRORCODE=5' + END)
                 print('\033[41;33;1m ERROR! \033[0m')
                 raise
                 time.sleep(15)
@@ -232,6 +249,7 @@ def main():
             try:
                 doctest.testmod(verbose=True)
             except:
+                logging.info(YELLOW + 'ERROR IN THE DOCTEST' + END)
                 print('\033[41;33;1m ERROR! \033[0m')
                 raise
                 time.sleep(15)
@@ -241,6 +259,7 @@ def main():
             try:
                 full_upgrade()
             except:
+                logging.warning(ERROR + 'ERRORCODE=3' + END)
                 print("\t\t\033[33;41;1m ERROR! \t\t\033[0m")
                 raise
                 time.sleep(15)
@@ -250,10 +269,12 @@ def main():
             try:
                 remover()
             except:
+                logging.error(ERROR + 'ERRORCODE=3' + END)
                 print('\033[33;41;1m ERROR! \033[0m')
                 raise
                 time.sleep(15)
         else:
+            logging.warning(YELLOW + 'ERRORCODE=7' + END)
             print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---      \t\t\033[0m")
             print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
             time.sleep(5)
