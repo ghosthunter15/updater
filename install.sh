@@ -1,4 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env fish
+#!/data/data/com.termux/files/usr/bin/env zsh
+
 
 # debugging
 #set -x # comm out when debugging is done
