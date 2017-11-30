@@ -12,19 +12,40 @@ import logging
     UPDATER is an apt wrapper.
     It upgrades an dose a full upgrade as well as removed old and
     outdated packages.
+
+    For the menu: Enter 1 - 0 
 """
 
 RED, GREEN, YELLOW, BLUE, MAGENTA, CAYN, ERROR, END = '\033[31;1m', '\033[32;1m', '\033[33;1m', '\033[34;1m', '\033[35;1m', '\033[36;1m', '\033[41;33;1m', '\033[0m'
 
 #var's
-__version = "1.8.4"
+__version = "1.8.5"
 
 __rabbit = '''\n\t\t           BEWARE!\n 
                 Man Eating Rabbits Up Ahead!
              '''
 __nii = "\n\t      The knights who say nii."
 
-logging.basicConfig(filename='.updater.log', filemode='w', level=logging.DEBUG)
+# Store as hidden logfile: .updater.log
+logging.basicConfig(filename='.updater.log',
+                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    datefmt='%m-%d %H:%M',
+                    filemode='w',
+                    level=logging.DEBUG)
+
+# set logging to screen:
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+
+# set logging formatter: tell handler to use format:
+formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+console.setFormatter(formatter)
+
+# add handler to root logger:
+logging.getLogger('').addHandler(console)
+
+# too add a logger, use this: logger1 = logging.getLogger('myapp.area1')
+logger_1 = logging.getLogger('update.main_loop')
             
 def apt_update():
     # ERRORCODE FOR THIS FUNC IS 6
@@ -227,7 +248,7 @@ def main():
             print("\033[96m        Version {} \033[0m".format(__version))
             """
             >>> print("        Version "__version)
-            version 1.8.3
+            version 1.8.5
             """
             print("\033[96m        Written by: Steve Gibson.\033[0m")
             print("\033[96m        Written on: July, 6th 2017.\033[0m")
@@ -275,10 +296,11 @@ def main():
                 raise
                 time.sleep(15)
         else:
-            logging.warning(YELLOW + 'ERRORCODE=7' + END)
             print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---      \t\t\033[0m")
             print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
-            time.sleep(5)
+            logging.warning(YELLOW + 'ERRORCODE=7' + END) # this also shows in console:
+            logger_1.info(YELLOW + '[!] Enter 1-0 too run wrapper' + END)
+            time.sleep(10)
 
 if __name__ == '__main__':
     """

@@ -15,4 +15,4 @@ Improvements added to the testing function.
 	Improvements
 
 Added a simple error logging.
-
+Improved Error logging.
