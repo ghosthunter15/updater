@@ -13,10 +13,9 @@ Improvements added to the testing function.
 
 10/29/2017
 	Improvements
-<<<<<<< HEAD
+    Added a simple error logging.
+    Improved Error logging.
+    Added KeyboardInterrupt
 
-Added a simple error logging.
-Improved Error logging.
-=======
-	added KeyboardInterrupt
->>>>>>> develop
+12/15/2017
+	bugfix and improvements

@@ -19,18 +19,18 @@ import logging
 RED, GREEN, YELLOW, BLUE, MAGENTA, CAYN, ERROR, END = '\033[31;1m', '\033[32;1m', '\033[33;1m', '\033[34;1m', '\033[35;1m', '\033[36;1m', '\033[41;33;1m', '\033[0m'
 
 #var's
-__version = "1.8.5"
+__version = "1.8.7"
 
 __rabbit = '''\n\t\t           BEWARE!\n 
                 Man Eating Rabbits Up Ahead!
              '''
 __nii = "\n\t      The knights who say nii."
 
-# Store as hidden logfile: .updater.log
+# Store as hidden logfile: .updater.log : add 'w' to stop append too filemode, in logfile. : filemode='w',
 logging.basicConfig(filename='.updater.log',
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M',
-                    filemode='w',
+                    
                     level=logging.DEBUG)
 
 # set logging to screen:
@@ -240,22 +240,6 @@ def main():
                     time.sleep(15)
 
 # menu 6
-<<<<<<< HEAD
-        elif user_input == '6':
-            ''' credets '''
-            print("\033[96m              ---CREDETS---\033[0m")
-            print("\033[96m             ===============\033[0m")
-            print("\n")
-            print("\033[96m        Version {} \033[0m".format(__version))
-            """
-            >>> print("        Version "__version)
-            version 1.8.5
-            """
-            print("\033[96m        Written by: Steve Gibson.\033[0m")
-            print("\033[96m        Written on: July, 6th 2017.\033[0m")
-            print("\n")
-            time.sleep(5)
-=======
             elif user_input == '6':
                 ''' credets '''
                 print("\033[96m              ---CREDETS---\033[0m")
@@ -264,13 +248,27 @@ def main():
                 print("\033[96m        Version {} \033[0m".format(__version))
                 """
                 >>> print("        Version "__version)
-                version 1.8.3
+                version 1.8.7
                 """
                 print("\033[96m        Written by: Steve Gibson.\033[0m")
                 print("\033[96m        Written on: July, 6th 2017.\033[0m")
                 print("\n")
                 time.sleep(5)
->>>>>>> develop
+
+            elif user_input == '6':
+                ''' credets '''
+                print("\033[96m              ---CREDETS---\033[0m")
+                print("\033[96m             ===============\033[0m")
+                print("\n")
+                print("\033[96m        Version {} \033[0m".format(__version))
+                """
+                >>> print("        Version "__version)
+                version 1.8.7
+                """
+                print("\033[96m        Written by: Steve Gibson.\033[0m")
+                print("\033[96m        Written on: July, 6th 2017.\033[0m")
+                print("\n")
+                time.sleep(5)
 
 # menu 8
             elif user_input == '8':
@@ -304,22 +302,6 @@ def main():
                     time.sleep(15)
 
 # menu 5
-<<<<<<< HEAD
-        elif user_input == '5':
-            try:
-                remover()
-            except:
-                logging.error(ERROR + 'ERRORCODE=3' + END)
-                print('\033[33;41;1m ERROR! \033[0m')
-                raise
-                time.sleep(15)
-        else:
-            print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---      \t\t\033[0m")
-            print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
-            logging.warning(YELLOW + 'ERRORCODE=7' + END) # this also shows in console:
-            logger_1.info(YELLOW + '[!] Enter 1-0 too run wrapper' + END)
-            time.sleep(10)
-=======
             elif user_input == '5':
                 try:
                     remover()
@@ -329,15 +311,16 @@ def main():
                     raise
                     time.sleep(15)
             else:
-                logging.warning(YELLOW + 'ERRORCODE=7' + END)
                 print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---      \t\t\033[0m")
                 print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
-                time.sleep(5)
+                logging.warning(YELLOW + 'ERRORCODE=7' + END) # this also shows in console:
+                logger_1.info(CAYN + '[!] Enter 1-0 too run wrapper' + END)
+                time.sleep(10)
+
     except KeyboardInterrupt:
-        logging.error(ERROR + '\tKeyboardInterrupt in main() loop.' + END)
-        print(YELLOW + '\n\n\tKeyboardInterrupt' + END)
-        time.sleep(5)
->>>>>>> develop
+        logger_1.debug(CAYN + '\tKeyboardInterrupt in main() loop.' + END)
+        print(YELLOW + '\n\n  [!]\tKeyboardInterrupt\n\n' + END)
+        time.sleep(3)
 
 if __name__ == '__main__':
     """
