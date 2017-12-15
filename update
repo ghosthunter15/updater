@@ -179,67 +179,68 @@ def clear_screen():
 
 def main():
     # Main function
+    try:
+        while True:
 
-    while True:
-
-        # clean up the screen
+            # clean up the screen
         
-        clear_screen()
+            clear_screen()
         
 
-        print("\033[93m              ----APT UPDATER----\033[0m")
-        print("\033[93m             =====================\033[0m\n\n\n")
-        #print("\n")
-        print("\033[92m         ---OPTIONS---\033[0m")
-        print("\033[92m        ===============\033[0m")
-        print("\033[92m      1: to check updates for apt.\033[0m")
-        print("\033[92m      2: to list upgradable packages.\033[0m")
-        print("\033[92m      3: to upgrade packages.\033[0m")
-        print("\033[92m      4: to fully upgrade apt.\033[0m")
-        print("\033[32;1m      5: to run autoremove.\033[0m")
-        print("\033[32;1m      6: to see credets.\033[0m")
-        print("\033[32;1m      7: to test applet.\033[0m")
-        print("\033[92m      0: to exit.\033[0m")
-        user_input = input("\033[93m ==> \033[0m")
+            print("\033[93m              ----APT UPDATER----\033[0m")
+            print("\033[93m             =====================\033[0m\n\n\n")
+            #print("\n")
+            print("\033[92m         ---OPTIONS---\033[0m")
+            print("\033[92m        ===============\033[0m")
+            print("\033[92m      1: to check updates for apt.\033[0m")
+            print("\033[92m      2: to list upgradable packages.\033[0m")
+            print("\033[92m      3: to upgrade packages.\033[0m")
+            print("\033[92m      4: to fully upgrade apt.\033[0m")
+            print("\033[32;1m      5: to run autoremove.\033[0m")
+            print("\033[32;1m      6: to see credets.\033[0m")
+            print("\033[32;1m      7: to test applet.\033[0m")
+            print("\033[92m      0: to exit.\033[0m")
+            user_input = input("\033[93m ==> \033[0m")
         
 # menu 0 | exit only
-        if user_input == '0':
-            print("\033[93m              ---NOW EXITING---\033[0m")
-            print("\033[93m             ===================\033[0m")
-            clear_screen()
+            if user_input == '0':
+                print("\033[93m              ---NOW EXITING---\033[0m")
+                print("\033[93m             ===================\033[0m")
+                clear_screen()
             #time.sleep(5)
-            sys.exit()
+                sys.exit()
 
 # menu 1
-        elif user_input == '1':
-            try:
-                apt_update()
-            except:
-                logging.warning(ERROR + 'ERRORCODE=6' + END)
-                print('\033[41;33;1m ERROR! \033[0m')
-                raise
-                time.sleep(15)
+            elif user_input == '1':
+                try:
+                    apt_update()
+                except:
+                    logging.warning(ERROR + 'ERRORCODE=6' + END)
+                    print('\033[41;33;1m ERROR! \033[0m')
+                    raise
+                    time.sleep(15)
 
 # menu 2
-        elif user_input == '2':
-            try:
-                apt_list_upgrades()
-            except:
-                logging.warning(ERROR + 'ERRORCODE=4' + END)
-                print('\033[41;33;1m ERROR! \033[0m')
-                time.sleep(15)
+            elif user_input == '2':
+                try:
+                    apt_list_upgrades()
+                except:
+                    logging.warning(ERROR + 'ERRORCODE=4' + END)
+                    print('\033[41;33;1m ERROR! \033[0m')
+                    time.sleep(15)
 
 # menu 3
-        elif user_input == '3':
-            try:
-                apt_upgrade()
-            except:
-                logging.warning(ERROR + 'ERRORCODE=5' + END)
-                print('\033[41;33;1m ERROR! \033[0m')
-                raise
-                time.sleep(15)
+            elif user_input == '3':
+                try:
+                    apt_upgrade()
+                except:
+                    logging.warning(ERROR + 'ERRORCODE=5' + END)
+                    print('\033[41;33;1m ERROR! \033[0m')
+                    raise
+                    time.sleep(15)
 
 # menu 6
+<<<<<<< HEAD
         elif user_input == '6':
             ''' credets '''
             print("\033[96m              ---CREDETS---\033[0m")
@@ -254,39 +255,56 @@ def main():
             print("\033[96m        Written on: July, 6th 2017.\033[0m")
             print("\n")
             time.sleep(5)
+=======
+            elif user_input == '6':
+                ''' credets '''
+                print("\033[96m              ---CREDETS---\033[0m")
+                print("\033[96m             ===============\033[0m")
+                print("\n")
+                print("\033[96m        Version {} \033[0m".format(__version))
+                """
+                >>> print("        Version "__version)
+                version 1.8.3
+                """
+                print("\033[96m        Written by: Steve Gibson.\033[0m")
+                print("\033[96m        Written on: July, 6th 2017.\033[0m")
+                print("\n")
+                time.sleep(5)
+>>>>>>> develop
 
 # menu 8
-        elif user_input == '8':
-            print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit))
-            time.sleep(3)
+            elif user_input == '8':
+                print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit))
+                time.sleep(3)
 
 # menu 9
-        elif user_input == '9':
-            print("\033[95m         {} \033[0m\n\n\n".format(__nii))
-            time.sleep(3)
+            elif user_input == '9':
+                print("\033[95m         {} \033[0m\n\n\n".format(__nii))
+                time.sleep(3)
 
 # menu 7
-        elif user_input == '7':
-            try:
-                doctest.testmod(verbose=True)
-                time.sleep(15)
-            except:
-                logging.info(YELLOW + 'ERROR IN THE DOCTEST' + END)
-                print('\033[41;33;1m ERROR! \033[0m')
-                raise
-                time.sleep(15)
+            elif user_input == '7':
+                try:
+                    doctest.testmod(verbose=True)
+                    time.sleep(15)
+                except:
+                    logging.info(YELLOW + 'ERROR IN THE DOCTEST' + END)
+                    print('\033[41;33;1m ERROR! \033[0m')
+                    raise
+                    time.sleep(15)
 
 # menu 4
-        elif user_input == '4':
-            try:
-                full_upgrade()
-            except:
-                logging.warning(ERROR + 'ERRORCODE=3' + END)
-                print("\t\t\033[33;41;1m ERROR! \t\t\033[0m")
-                raise
-                time.sleep(15)
+            elif user_input == '4':
+                try:
+                    full_upgrade()
+                except:
+                    logging.warning(ERROR + 'ERRORCODE=3' + END)
+                    print("\t\t\033[33;41;1m ERROR! \t\t\033[0m")
+                    raise
+                    time.sleep(15)
 
 # menu 5
+<<<<<<< HEAD
         elif user_input == '5':
             try:
                 remover()
@@ -301,6 +319,25 @@ def main():
             logging.warning(YELLOW + 'ERRORCODE=7' + END) # this also shows in console:
             logger_1.info(YELLOW + '[!] Enter 1-0 too run wrapper' + END)
             time.sleep(10)
+=======
+            elif user_input == '5':
+                try:
+                    remover()
+                except:
+                    logging.error(ERROR + 'ERRORCODE=3' + END)
+                    print('\033[33;41;1m ERROR! \033[0m')
+                    raise
+                    time.sleep(15)
+            else:
+                logging.warning(YELLOW + 'ERRORCODE=7' + END)
+                print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---      \t\t\033[0m")
+                print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
+                time.sleep(5)
+    except KeyboardInterrupt:
+        logging.error(ERROR + '\tKeyboardInterrupt in main() loop.' + END)
+        print(YELLOW + '\n\n\tKeyboardInterrupt' + END)
+        time.sleep(5)
+>>>>>>> develop
 
 if __name__ == '__main__':
     """
