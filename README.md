@@ -12,3 +12,4 @@ Improvements added to the testing function.
 
 10/29/2017
 	Improvements
+	added KeyboardInterrupt
