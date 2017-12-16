@@ -176,7 +176,6 @@ def clear_screen():
         print('\033[41;33;1m ERROR CODE=1 \033[0m')
         raise
 
-
 def main():
     # Main function
     try:
