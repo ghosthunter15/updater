@@ -4,6 +4,7 @@ An apt updater.
 This applets paths are setup for termux users.
 This applet, updates your apt packages and fully upgrades apt.
 
+===CHANGE LOG===
 Added an easy install.
 run chmod on install.sh
 
