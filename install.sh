@@ -19,7 +19,7 @@ echo '++++++++++++++++++++'
 echo 
 
 # make exe
-pushd ~/bin
+pushd ~/bin/
 chmod -v 777 update
 popd 
 
