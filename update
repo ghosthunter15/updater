@@ -176,12 +176,23 @@ def clear_screen():
         print('\033[41;33;1m ERROR CODE=1 \033[0m')
         raise
 
+# clear log :: in testing, always use no ofr testing
+# ERRORCODE for this func is 7
+def clear_log():
+    """
+    >>> subprocess.run(['rm', '-v', '-i', '.updater.log']) 
+    CompletedProcess(args=['rm', '-v', '-i', '.updater.log'], returncode=0)
+
+    """
+    print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit)) # for testing func call
+
 def main():
     # Main function
     try:
         while True:
 
             # clean up the screen
+            #add menu num 8
         
             clear_screen()
         
@@ -271,8 +282,14 @@ def main():
 
 # menu 8
             elif user_input == '8':
-                print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit))
-                time.sleep(3)
+                try:
+                    clear_log()
+                except:
+                    logging.warnig(ERROR + 'ERRORCODE=7' + END)
+                    print('\033[41;33;1m ERROR! \033[0m')
+                    raise
+
+                time.sleep(15)
 
 # menu 9
             elif user_input == '9':
@@ -332,11 +349,12 @@ if __name__ == '__main__':
             1 tests in __main__.apt_list_upgrades
             1 tests in __main__.apt_update
             2 tests in __main__.clear_screen
+            1 tests in __main__.clear_log
             1 tests in __main__.apt_upgrade
             1 tests in __main__.full_upgrade
             1 tests in __main__.remover
-        7 tests in 8 items.
-        7 passed and 0 failed.
+        8 tests in 9 items.
+        8 passed and 0 failed.
         Test passed.
     Calls the main function;
         Updates all installed apt packages,
@@ -345,7 +363,7 @@ if __name__ == '__main__':
 
 
     # comm out after debugging:
-#    doctest.testmod(verbose=True)
+   # doctest.testmod(verbose=True)
 
     # Calling main(); Uncomm when done debugging:
     """

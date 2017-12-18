@@ -1,0 +1,4 @@
+12/18/2017
+	add test code for clear_log() 
+	need to add menu nom 8
+	add live code to clear_log()
