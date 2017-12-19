@@ -13,13 +13,13 @@ import logging
     It upgrades an dose a full upgrade as well as removed old and
     outdated packages.
 
-    For the menu: Enter 1 - 0 
+    For the menu: Enter 0 - 8  
 """
 
 RED, GREEN, YELLOW, BLUE, MAGENTA, CAYN, ERROR, END = '\033[31;1m', '\033[32;1m', '\033[33;1m', '\033[34;1m', '\033[35;1m', '\033[36;1m', '\033[41;33;1m', '\033[0m'
 
 #var's
-__version = "1.8.7"
+__version = "1.8.8"
 
 __rabbit = '''\n\t\t           BEWARE!\n 
                 Man Eating Rabbits Up Ahead!
@@ -52,7 +52,8 @@ def apt_update():
     #call apt
     """
     # TESTING: NO BUGS
-    # if no network connection may have returncode=100 fails doctest 
+    # if no network connection may have returncode=100 fails doctest
+    # need to find a fix.
     >>> subprocess.run(['apt', 'update'])
     CompletedProcess(args=['apt', 'update'], returncode=0)
     >>> 
@@ -211,6 +212,7 @@ def main():
             print("\033[32;1m      5: to run autoremove.\033[0m")
             print("\033[32;1m      6: to see credets.\033[0m")
             print("\033[32;1m      7: to test applet.\033[0m")
+            print(GREEN + "      8: to clear the log file." + END)
             print("\033[92m      0: to exit.\033[0m")
             user_input = input("\033[93m ==> \033[0m")
         
@@ -275,7 +277,7 @@ def main():
                 print("\033[96m        Version {} \033[0m".format(__version))
                 """
                 >>> print("        Version "__version)
-                version 1.8.7
+                version 1.8.8
                 """
                 print("\033[96m        Written by: Steve Gibson.\033[0m")
                 print("\033[96m        Written on: July, 6th 2017.\033[0m")
@@ -291,7 +293,7 @@ def main():
                     print('\033[41;33;1m ERROR! \033[0m')
                     raise
 
-                time.sleep(15)
+                time.sleep(5)
 
 # menu 9
             elif user_input == '9':
@@ -332,7 +334,7 @@ def main():
                 print("\t\t\033[33;41;1m       ---UNKNOWN INPUT---      \t\t\033[0m")
                 print("\t\t\033[33;41;1m      =====================     \t\t\033[0m\n")
                 logging.warning(YELLOW + 'ERRORCODE=7' + END) # this also shows in console:
-                logger_1.info(CAYN + '[!] Enter 1-0 too run wrapper' + END)
+                logger_1.info(CAYN + '[!] Enter 0-8 too run wrapper' + END)
                 time.sleep(10)
 
     except KeyboardInterrupt:

@@ -4,6 +4,8 @@
 =======
 	
 	add test code for clear_log() | done
-	need to add menu num 8
+	need to add menu num 8 | done
 	add live code to clear_log() | done
 >>>>>>> 0663fa86928701bd5ae8a43ba2be7399db98eedf
+
+
