@@ -1,0 +1,2 @@
+12/18/2017
+    add a func to remove old logfile.
