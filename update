@@ -184,7 +184,9 @@ def clear_log():
     CompletedProcess(args=['rm', '-v', '-i', '.updater.log'], returncode=0)
 
     """
-    print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit)) # for testing func call
+    subprocess.run(['rm', '-v', '-i', '.updater.log'])
+
+   # print('\033[95m         {} \033[0m\n\n\n'.format(__rabbit)) # for testing func call
 
 def main():
     # Main function
