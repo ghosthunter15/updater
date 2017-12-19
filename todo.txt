@@ -1,2 +1,9 @@
 12/18/2017
+<<<<<<< HEAD
     add a func to remove old logfile.
+=======
+	
+	add test code for clear_log() 
+	need to add menu nom 8
+	add live code to clear_log()
+>>>>>>> 0663fa86928701bd5ae8a43ba2be7399db98eedf
