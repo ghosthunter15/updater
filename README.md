@@ -23,3 +23,5 @@ Improvements added to the testing function.
 
 12/19/2017
 	added clear_log() func in menu 8
+10/03/2019
+	added a warning..

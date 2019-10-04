@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/python3.6
+#!/data/data/com.termux/files/usr/bin/python3.7
 
 #import os  # commed out: not used
 #import chalk # commed out: not used
@@ -24,7 +24,9 @@ __version = "1.8.8"
 __rabbit = '''\n\t\t           BEWARE!\n 
                 Man Eating Rabbits Up Ahead!
              '''
-__nii = "\n\t      The knights who say nii."
+__nii = "\n[*]\t      The knights who say nii."
+
+__Warning = "\n\t[!]\t WARNING, NEVER RUN AS ROOT!"
 
 # Store as hidden logfile: .updater.log : add 'w' to stop append too filemode, in logfile. : filemode='w',
 logging.basicConfig(filename='.updater.log',
@@ -213,6 +215,7 @@ def main():
             print("\033[32;1m      6: to see credets.\033[0m")
             print("\033[32;1m      7: to test applet.\033[0m")
             print(GREEN + "      8: to clear the log file." + END)
+            print(RED + "      9: WARNING!" + END) # In testing
             print("\033[92m      0: to exit.\033[0m")
             user_input = input("\033[93m ==> \033[0m")
         
@@ -295,10 +298,15 @@ def main():
 
                 time.sleep(5)
 
-# menu 9
-            elif user_input == '9':
+# menu 10
+            elif user_input == '10':
                 print("\033[95m         {} \033[0m\n\n\n".format(__nii))
                 time.sleep(3)
+# menu 9
+            elif user_input == '9':
+                print(RED + "{}\n\n\n ".format(__Warning + END))
+                
+                time.sleep(5)
 
 # menu 7
             elif user_input == '7':
