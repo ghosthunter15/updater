@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/python3.7
+#!/data/data/com.termux/files/usr/bin/python3
 
 #import os  # commed out: not used
 #import chalk # commed out: not used
@@ -19,7 +19,7 @@ import logging
 RED, GREEN, YELLOW, BLUE, MAGENTA, CAYN, ERROR, END = '\033[31;1m', '\033[32;1m', '\033[33;1m', '\033[34;1m', '\033[35;1m', '\033[36;1m', '\033[41;33;1m', '\033[0m'
 
 #var's
-__version = "1.8.8"
+__version = "1.8.9"
 
 __rabbit = '''\n\t\t           BEWARE!\n 
                 Man Eating Rabbits Up Ahead!
@@ -56,14 +56,14 @@ def apt_update():
     # TESTING: NO BUGS
     # if no network connection may have returncode=100 fails doctest
     # need to find a fix.
-    >>> subprocess.run(['apt', 'update'])
-    CompletedProcess(args=['apt', 'update'], returncode=0)
+    >>> subprocess.run(['pkg', 'update', '--dry-run'])
+    CompletedProcess(args=['pkg', 'update', '--dry-run'], returncode=0)
     >>> 
     """
 
-    print("\033[93m              ---APT UPDATING---\033[0m")
+    print("\033[93m              ---PKG UPDATING---\033[0m")
     print("\033[93m             ==================== \033[0m")
-    subprocess.run(['apt', 'update'])
+    subprocess.run(['pkg', 'update'])
     print("\033[93m                  ---DONE---\033[0m")
     print("\033[93m                 ============\033[0m\n\n")
     time.sleep(2)
@@ -73,14 +73,14 @@ def apt_upgrade():
     # upgrade apt
     # if no network connection may have returncode=100)
     """
-    >>> subprocess.run(['apt', 'upgrade', '--dry-run'])
-    CompletedProcess(args=['apt', 'upgrade', '--dry-run'], returncode=0)
+    >>> subprocess.run(['pkg', 'upgrade', '--dry-run'])
+    CompletedProcess(args=['pkg', 'upgrade', '--dry-run'], returncode=0)
     >>> 
     """
 
-    print("\033[93m              ---APT UPGRADING---\033[0m")
+    print("\033[93m              ---PKG UPGRADING---\033[0m")
     print("\033[93m             =====================\033[0m")
-    subprocess.run(['apt', 'upgrade', '-y'])
+    subprocess.run(['pkg', 'upgrade', '-y'])
     print("\033[93m                  ---DONE---\033[0m")
     print("\033[93m                 ============\033[0m\n\n")
     time.sleep(2)
@@ -93,7 +93,7 @@ def apt_list_upgrades():
     >>> 
     """
 
-    print("\033[93m              ---APT LISTING UPGRADES---\033[0m")
+    print("\033[93m              ---PKG LISTING UPGRADES---\033[0m")
     print("\033[93m             ============================\033[0m")
     subprocess.run(['apt', 'list', '--upgradable'])
     print("\033[93m                  ---DONE---\033[0m")
@@ -110,7 +110,7 @@ def full_upgrade():
     CompletedProcess(args=['apt', 'full-upgrade', '--dry-run'], returncode=0)
     >>> 
     """
-    print("\033[93m              ---APT FULL UPGRADE---    \033[0m")
+    print("\033[93m              ---PKG FULL UPGRADE---    \033[0m")
     print("\033[93m             ========================   \033[0m")
     subprocess.run(['apt', 'full-upgrade', '-y'])
     print("\033[93m                  ---DONE---\033[0m")
@@ -125,7 +125,7 @@ def remover():
     CompletedProcess(args=['apt', 'autoremove', '--dry-run'], returncode=0)
     >>> 
     """
-    print("\033[33;1m           ---APT AUTOREMOVE---            \033[0m")
+    print("\033[33;1m           ---PKG AUTOREMOVE---            \033[0m")
     print("\033[33;1m           ======================           \033[0m\n\n")
     subprocess.run(['apt', 'autoremove', '-y'])
     print('\033[33;1m                 ---DONE---\033[0m')
@@ -202,7 +202,7 @@ def main():
             clear_screen()
         
 
-            print("\033[93m              ----APT UPDATER----\033[0m")
+            print("\033[93m              ----PKG UPDATER----\033[0m")
             print("\033[93m             =====================\033[0m\n\n\n")
             #print("\n")
             print("\033[92m         ---OPTIONS---\033[0m")
@@ -265,7 +265,7 @@ def main():
                 print("\033[96m        Version {} \033[0m".format(__version))
                 """
                 >>> print("        Version "__version)
-                version 1.8.7
+                version 1.8.9
                 """
                 print("\033[96m        Written by: Steve Gibson.\033[0m")
                 print("\033[96m        Written on: July, 6th 2017.\033[0m")
@@ -280,7 +280,7 @@ def main():
                 print("\033[96m        Version {} \033[0m".format(__version))
                 """
                 >>> print("        Version "__version)
-                version 1.8.8
+                version 1.8.9
                 """
                 print("\033[96m        Written by: Steve Gibson.\033[0m")
                 print("\033[96m        Written on: July, 6th 2017.\033[0m")
@@ -377,7 +377,7 @@ if __name__ == '__main__':
     # comm out after debugging:
    # doctest.testmod(verbose=True)
 
-    # Calling main(); Uncomm when done debugging:
+    # Calling main(); Un-comm when done debugging:
     """
     >>> main()
     """
