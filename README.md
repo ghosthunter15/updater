@@ -1,9 +1,13 @@
-# updater
+# Updater
+
+
+![GitHub Org's stars](https://img.shields.io/github/stars/ghosthunter15?style=plastic)
 An apt updater.
 
 This applets paths are setup for termux users.
 This applet, updates your apt packages and fully upgrades apt.
 
+## Changes
 ===CHANGE LOG===
 Added an easy install.
 run chmod on install.sh
