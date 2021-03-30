@@ -1,6 +1,6 @@
 # Updater
 
-![GitHub Repo stars](https://img.shields.io/github/stars/ghosthunter15/updater?style=plastic) ![GitHub watchers](https://img.shields.io/github/watchers/ghosthunter15/updater?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/ghosthunter15/updater?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/ghosthunter15/updater?style=plastic) ![GitHub watchers](https://img.shields.io/github/watchers/ghosthunter15/updater?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/ghosthunter15/updater?style=plastic) ![GitHub](https://img.shields.io/github/license/ghosthunter15/updater?style=plastic)
 
 An apt updater.
 
