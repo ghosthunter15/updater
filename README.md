@@ -1,6 +1,6 @@
 # Updater
 
-![GitHub Repo stars](https://img.shields.io/github/stars/ghosthunter15/updater?style=plastic) ![GitHub watchers](https://img.shields.io/github/watchers/ghosthunter15/updater?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/ghosthunter15/updater?style=plastic) ![GitHub commit merge status](https://img.shields.io/github/commit-status/ghosthunter15/updater/master/4eea960b79b1631e3d698cfd0e9fd14251952a9a?style=plastic) ![GitHub last commit](https://img.shields.io/github/last-commit/ghosthunter15/updater?style=plastic) ![GitHub](https://img.shields.io/github/license/ghosthunter15/updater?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/ghosthunter15/updater?style=plastic) ![GitHub watchers](https://img.shields.io/github/watchers/ghosthunter15/updater?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/ghosthunter15/updater?style=plastic) ![GitHub commit merge status](https://img.shields.io/github/commit-status/ghosthunter15/updater/master/4eea960b79b1631e3d698cfd0e9fd14251952a9a?style=plastic) ![GitHub last commit](https://img.shields.io/github/last-commit/ghosthunter15/updater?style=plastic) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/ghosthunter15/updater?style=plastic) ![GitHub](https://img.shields.io/github/license/ghosthunter15/updater?style=plastic)
 
 An apt updater.
 
